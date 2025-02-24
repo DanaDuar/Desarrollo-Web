@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(5, 5, 5, 0.1);
+            width: 300px;
+        }
+        label, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+    </style>
+    <script>
+        function validarform() {
+            console.log("Validando...");
+            let nombre = document.getElementById("Nombre").value;
+            if (nombre.length <=5) {
+                alert("El nombre debe tener más de 5 caracteres");
+                return false;
+            }
+            let edad = document.getElementById("edad").value;
+            if (edad <= 18) {
+                alert("La edad debe ser mayor a 18 años");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form action="/register" method="POST" onsubmit="return validarform()">
+        <label for="Nombre">Nombre Completo</label>
+        <input type="text" name="Nombre" id="Nombre">
+
+        <label for="correo">Correo Electrónico</label>
+        <input type="email" name="correo" id="correo">
+
+        <label for="tel">Número de Teléfono</label>
+        <input type="tel" name="tel" id="tel">
+
+        <label for="exp">Experiencia Laboral</label>
+        <input type="text" name="exp" id="exp" placeholder="SI/NO">
+
+        <label for="Mas">Puesto al que se quiere postular</label>
+        <input type="text" name="Mas" id="Mas">
+
+        <label for="genero">Género</label>
+        <select name="genero" id="genero">
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+            <option value="Otro">Otro</option>
+        </select>
+
+        <label for="Carrera">Carrera</label>
+        <input type="text" name="Carrera" id="Carrera">
+
+        <label for="direccion">Dirección</label>
+        <input type="text" name="direccion" id="direccion">
+
+
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
